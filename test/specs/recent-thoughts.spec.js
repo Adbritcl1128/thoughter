@@ -1,29 +1,28 @@
 (function() {
   'use strict';
   let expect = chai.expect;
+  //
   describe('main module', function(){
-    describe('showRecent function', function(){
       beforeEach(function(){
         let newMain = document.createElement('main');
         newMain.classList.add('recent');
         document.querySelector('body').appendChild(newMain);
-
       });
-
       afterEach(function(){
-        let main = document.querySelector('main');
+        let main = document.querySelector('main.recent');
         main.parentNode.removeChild(main);
       });
-      it('should run the function', function(){
+      it('should create articles for every thought it is given', function(){
         let result = window.thoughter.showRecent([
           {content:'This is hard', createTime: '09:00', id: 'Alex'}
         ]);
-        let articles = document.querySelectorAll('main article');
+        let articles = document.querySelectorAll('main.recent article');
         expect(articles.length).to.equal(1);
       });
-      it('should handle an empty array', function(){
-        let result = window.thoughter.showRecent([]);
-        expect(window.thoughter.showRecent.length).to.equal(0);
+      it('should handle argument that is not an array', function(){
+        let result = window.thoughter.showRecent([]);//connecting to the show recent function calling the function with an array because it calls for an array
+        let articles = document.querySelectorAll('main.recent articles');
+        expect(articles.length).to.equal(0);
       });
       it('should handle argument that is not an array', function(){
         let result = window.thoughter.showRecent('Hello');
