@@ -13,8 +13,9 @@
         if (!Array.isArray(thoughts)) {
             return;
         }
-
+        //says that you need something with a class recent
         let recent = document.querySelector('.recent');
+        //below will create as many articles as are in the array.
         thoughts.forEach(function showThought(thought) {
             if (!thought.content || !thought.createTime || !thought.id) {
                 return;
