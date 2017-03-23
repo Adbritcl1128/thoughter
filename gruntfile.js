@@ -67,7 +67,6 @@ module.exports = function configureGrunt (gruntConfig) {
           singleRun: true,
           files: [
             'src/**/*.js',
-            'node_modules/sinon/pkg/sinon-2.0.0.js',
             'test/specs/**/*.js'
           ]
         }
